@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended: false}))
 function passwordProtected(req, res, next){
     res.set('WWW-Authenticate', 'Basic realm="Simple ToDo App"')
     console.log(req.headers.authorization)
-    if(req.headers.authorization == "Basic bGVhcm46bGVhcm4="){
+    if(req.headers.authorization == "Basic bGVhcm46bGVhcm4="){  // username: learn, pass: learn
         next()
     }else{
         res.status(401).send("Authentication required!")
